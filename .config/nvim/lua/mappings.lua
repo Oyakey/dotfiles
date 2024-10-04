@@ -23,3 +23,5 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
 
 map("n", "<leader>qa", "<cmd>qa<cr>")
 map("n", "<leader>qA", "<cmd>qa!<cr>")
+
+map("n", "<leader>tw", "<cmd>set list!<cr>")

@@ -45,4 +45,17 @@ return {
     "tpope/vim-fugitive",
     lazy = false,
   },
+
+  -- {
+  --   "tpope/vim-sleuth",
+  --   lazy = false,
+  -- },
+
+  {
+    "nmac427/guess-indent.nvim",
+    lazy = false,
+    config = function()
+      require("guess-indent").setup {}
+    end,
+  },
 }

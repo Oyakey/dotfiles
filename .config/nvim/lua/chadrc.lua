@@ -6,12 +6,16 @@
 local M = {}
 
 M.base46 = {
-  theme = "ayu_light",
+  theme = "palenight",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
 }
+
+vim.opt.relativenumber = true
+vim.opt.listchars = { space = "·", tab = "→ " }
+vim.opt.tabstop = 4
 
 return M
