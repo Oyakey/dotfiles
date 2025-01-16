@@ -17,7 +17,9 @@ map("n", "<leader>gas", "<cmd>Git add .<cr>")
 map("n", "<leader>gau", "<cmd>Git reset .<cr>")
 map("n", "<leader>gaR", "<cmd>Git reset --hard<cr>")
 
-map("n", "<leader>G", "<cmd>term lazygit<cr>")
+map("n", "<leader>G", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+map("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+map("n", "<leader>lG", "<cmd>term lazygit<cr>")
 
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
 
@@ -25,3 +27,41 @@ map("n", "<leader>qa", "<cmd>qa<cr>")
 map("n", "<leader>qA", "<cmd>qa!<cr>")
 
 map("n", "<leader>tw", "<cmd>set list!<cr>")
+
+map("n", "<leader>ef", "<cmd>EslintFixAll<cr>")
+
+-- Keyboard users
+map("n", "<C-_>", function()
+  require("menu").open "default"
+end, {})
+
+-- mouse users + nvimtree users!
+map("n", "<RightMouse>", function()
+  vim.cmd.exec '"normal! \\<RightMouse>"'
+
+  local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+  require("menu").open(options, { mouse = true })
+end, {})
+
+map(
+  "n",
+  "<leader>ku",
+  ":lua Close_saved_buffers()<CR>",
+  { noremap = true, silent = true }
+)
+
+map(
+  "n",
+  "<leader>df",
+  vim.diagnostic.open_float,
+  { desc = "Open floating diagnostics" }
+)
+
+local isLspDiagnosticsVisible = true
+map("n", "<leader>lx", function()
+  isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+  vim.diagnostic.config {
+    virtual_text = isLspDiagnosticsVisible,
+    underline = isLspDiagnosticsVisible,
+  }
+end)

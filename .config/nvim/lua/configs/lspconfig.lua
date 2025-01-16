@@ -12,6 +12,10 @@ local servers = {
   "gdshader_lsp",
   "intelephense",
   "tailwindcss",
+  "clangd",
+  "gopls",
+  "golangci_lint_ls",
+  "rust_analyzer",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

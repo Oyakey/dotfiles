@@ -1,168 +1,162 @@
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[palette]
+  black = '#5C5F77'
+  blue = '#1E66F5'
+  closer = 'p:os'
+  cyan = '#179299'
+  green = '#40A02B'
+  grey = '#E5E5E6'
+  lavender = '#7287FD'
+  magenta = '#EA76CB'
+  orange = '#fe640b'
+  os = '#ACB0BE'
+  pink = '#ea76cb'
+  purple = '#8839ef'
+  red = '#D20F39'
+  text = 'p:wight'
+  white = '#ACB0BE'
+  wight = '#FFFFFF'
+  yellow = '#DF8E1D'
+
+[secondary_prompt]
+  template = '<p:yellow,transparent></><,p:yellow> > </><p:yellow,transparent></> '
+  foreground = 'p:black'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '<p:pink,transparent></><,p:pink> {{ .Folder }} </><p:pink,transparent></> '
+  foreground = 'p:wight'
+  background = 'transparent'
 
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
 
   [[blocks.segments]]
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }} '
+    foreground = 'p:text'
+    background = 'p:blue'
     type = 'session'
     style = 'diamond'
-    leading_diamond = ''
-    trailing_diamond = ''
-    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }} '
-    background = 'p:plum'
-    foreground = 'p:white'
-
-  [[blocks.segments]]
-    type = 'path'
-    style = 'powerline'
-    powerline_symbol = ''
-    template = '  {{ path .Path .Location }} '
-    background = 'p:blush'
-    foreground = 'p:white'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '  {{ path .Path .Location }} '
+    foreground = 'p:text'
+    powerline_symbol = ''
+    background = 'p:pink'
+    type = 'path'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'folder'
 
   [[blocks.segments]]
-    type = 'git'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}', '{{ if gt .Ahead 0 }}p:white{{ end }}']
-    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:salmon{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:tan{{ end }}', '{{ if gt .Ahead 0 }}p:sky{{ end }}', '{{ if gt .Behind 0 }}#7A306C{{ end }}']
+    leading_diamond = ''
+    trailing_diamond = ''
     template = ' {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
-    background = 'p:teal'
-    foreground = 'p:white'
+    foreground = 'p:text'
+    background = 'p:lavender'
+    type = 'git'
+    style = 'diamond'
+    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:cyan{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}', '{{ if gt .Ahead 0 }}p:lavender{{ end }}', '{{ if gt .Behind 0 }}#7A306C{{ end }}']
 
     [blocks.segments.properties]
       branch_max_length = 25
+      cache_duration = 'none'
       fetch_status = true
       fetch_upstream_icon = true
-
-  [[blocks.segments]]
-    type = 'root'
-    style = 'powerline'
-    powerline_symbol = ''
-    template = '  '
-    background = 'p:yellow'
-    foreground = 'p:white'
-
-  [[blocks.segments]]
-    type = 'status'
-    style = 'diamond'
-    background_templates = ['{{ if gt .Code 0 }}p:tan{{ end }}']
-    leading_diamond = '<transparent,background></>'
-    trailing_diamond = ''
-    template = ' {{ if gt .Code 0 }}{{ else }}{{ end }} '
-    background = 'p:teal_blue'
-    foreground = 'p:white'
-
-    [blocks.segments.properties]
-      always_enabled = true
 
 [[blocks]]
   type = 'rprompt'
 
   [[blocks.segments]]
+    template = ' '
+    foreground = 'p:green'
+    background = 'transparent'
     type = 'node'
     style = 'plain'
-    template = ' '
-    background = 'transparent'
-    foreground = 'p:green'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       display_mode = 'files'
       fetch_package_manager = false
       home_enabled = false
 
   [[blocks.segments]]
+    template = ' '
+    foreground = 'p:blue'
+    background = 'transparent'
     type = 'go'
     style = 'plain'
-    template = ' '
-    background = 'transparent'
-    foreground = 'p:blue'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       fetch_version = false
 
   [[blocks.segments]]
+    template = ' '
+    foreground = 'p:yellow'
+    background = 'transparent'
     type = 'python'
     style = 'plain'
-    template = ' '
-    background = 'transparent'
-    foreground = 'p:yellow'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       display_mode = 'files'
       fetch_version = false
       fetch_virtual_env = false
 
   [[blocks.segments]]
+    template = 'in <p:blue><b>{{ .Name }}</b></> '
+    foreground = 'p:white'
+    background = 'transparent'
     type = 'shell'
     style = 'plain'
-    template = 'in <p:blue><b>{{ .Name }}</b></> '
-    background = 'transparent'
-    foreground = 'p:white'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
   [[blocks.segments]]
+    template = 'at <p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
+    foreground = 'p:white'
+    background = 'transparent'
     type = 'time'
     style = 'plain'
-    template = 'at <p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
-    background = 'transparent'
-    foreground = 'p:white'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[tooltips]]
-  type = 'aws'
-  tips = ['aws']
-  style = 'diamond'
   leading_diamond = ''
   trailing_diamond = ''
   template = '  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
-  background = 'p:orange'
   foreground = 'p:white'
+  background = 'p:orange'
+  type = 'aws'
+  style = 'diamond'
+  tips = ['aws']
 
   [tooltips.properties]
     display_default = true
 
 [[tooltips]]
-  type = 'az'
-  tips = ['az']
-  style = 'diamond'
   leading_diamond = ''
   trailing_diamond = ''
   template = '  {{ .Name }} '
-  background = 'p:blue'
   foreground = 'p:white'
+  background = 'p:blue'
+  type = 'az'
+  style = 'diamond'
+  tips = ['az']
 
   [tooltips.properties]
     display_default = true
-
-[transient_prompt]
-  template = '<p:plum,transparent></><,p:plum> {{ .Folder }} </><p:plum,transparent></> '
-  background = 'transparent'
-  foreground = 'p:white'
-
-[secondary_prompt]
-  template = '<p:yellow,transparent></><,p:yellow> > </><p:yellow,transparent></> '
-  background = 'transparent'
-  foreground = 'p:black'
-
-[palette]
-  black = '#262B44'
-  blue = '#4B95E9'
-  green = '#59C9A5'
-  orange = '#F07623'
-  red = '#D81E5B'
-  white = '#E0DEF4'
-  yellow = '#F3AE35'
-  #  white = "#FFFFFF"
-  tan = "#CC3802"
-  teal = "#047E84"
-  plum = "#9A348E"
-  blush = "#DA627D"
-  salmon = "#FCA17D"
-  sky = "#86BBD8"
-  teal_blue = "#33658A"
-

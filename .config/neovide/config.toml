@@ -1,0 +1,5 @@
+theme = "auto"
+
+[font]
+normal = [{ "family" = "JetBrainsMono Nerd Font" }]
+size = 15
