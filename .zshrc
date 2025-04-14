@@ -80,7 +80,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 git
-autojump
 zsh-syntax-highlighting
 zsh-autosuggestions
 zsh-completions
@@ -116,19 +115,23 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Alias
-alias s="cd ~/Sites"
+alias s="cd ~/dev"
 alias o="open ."
 alias c="code ."
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
 alias vim=nvim
+alias v=nvim
 alias kssh="kitty +kitten ssh"
+alias cd=z
 
 #Git 
 alias gladog="git log --all --decorate --oneline --graph"
-alias gun="git undo"
-alias gre="git redo"
+alias gun="git reset HEAD~"
+alias gre="git reset HEAD@{1}"
+# alias gun="git undo"
+# alias gre="git redo"
 
-alias python="python3.11"
+alias python="python3"
 alias py="python"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -162,8 +165,9 @@ export PATH="$PATH:$HOME/.develop/flutter/bin"
 alias wpcli="docker compose exec web wp --allow-root"
 
 # Java
-export JAVA_HOME=/usr/libexec/java_home
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export JAVA_HOME=/usr/libexec/java_home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Zlib
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
@@ -198,17 +202,88 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 
 # PHP version manager
-source ~/.pvm/pvm.zsh
+# source ~/.pvm/pvm.zsh
 
 alias restartTouchbar="sudo pkill TouchBarServer; sudo killall ControlStrip"
 
 # Starship
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 # Oh my posh
-export OHMYPOSHCONFIG="/Users/julien/.config/ohmyposh.toml"
-alias ompconfig="vim $OHMYPOSHCONFIG"
-eval "$(oh-my-posh init zsh --config=$OHMYPOSHCONFIG)"
+# export OHMYPOSHCONFIG="~/.config/ohmyposh.toml"
+# export OHMYPOSHCONFIG="~/.config/ohmyposh/montys.omp.toml"
+# alias ompconfig="vim $OHMYPOSHCONFIG"
+# eval "$(oh-my-posh init zsh --config=$OHMYPOSHCONFIG)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/jlecarpentier/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Android Studio
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# clang
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export CC="/opt/homebrew/opt/llvm/bin/clang"
+export CC="/usr/bin/clang"
+# export CXX="$CC++"
+# export LDFLAGS="$LDFLAGS -L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/opt/llvm/include"
+
+# Suggests correction for mispelled shell command.
+setopt correct
+
+# Set variables for curl etc. to use cegedim proxy.
+# Works for curl, brew and nvm with just url and port,
+# works for lerna with username:password@url:port,
+# currently not working for gradle and maybe cocoapods with maiia connect
+
+set_proxy() {
+  if curl --output /dev/null --silent --head isp-ceg.emea.cegedim.grp:3128;
+  then
+    PROXY="isp-ceg.emea.cegedim.grp:3128";
+    SHOULD_SET_PROXY=true;
+    while getopts "cd" flag; do
+      case $flag in
+        c) 
+          USERNAME="jlecarpentier";
+          PASSWORD="JLCeg456+";
+          PROXY="$USERNAME:$PASSWORD@isp-ceg.emea.cegedim.grp:3128";
+        ;;
+        d)
+          SHOULD_SET_PROXY=false;
+        ;;
+      esac
+    done
+    export PROXY;
+    if $SHOULD_SET_PROXY;
+    then
+      echo "Using cegedim proxy";
+      export ALL_PROXY=$PROXY;
+      export all_proxy=$PROXY;
+      export HTTP_PROXY=http://$PROXY;
+      export http_proxy=http://$PROXY;
+      export HTTPS_PROXY=http://$PROXY;
+      export https_proxy=http://$PROXY;
+    else
+      echo "Exported PROXY"
+    fi
+  fi
+}
+clear_proxy ()
+{
+  unset PROXY ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy 
+}
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/jlecarpentier/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

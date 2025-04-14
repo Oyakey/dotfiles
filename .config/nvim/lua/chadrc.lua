@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "bearded-arc",
+  theme = "chadracula-evondev",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -66,5 +66,16 @@ if vim.g.neovide then
   vim.g.terminal_color_15 = "#a6adc8"
   vim.g.neovide_cursor_trail_size = 0
 end
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup(
+    "kickstart-highlight-yank",
+    { clear = true }
+  ),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 return M

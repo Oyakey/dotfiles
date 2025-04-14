@@ -123,4 +123,17 @@ return {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    keys = {
+      {
+        "<leader>fg",
+        ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+        desc = "telescope live grep (args)",
+      },
+    },
+  },
 }

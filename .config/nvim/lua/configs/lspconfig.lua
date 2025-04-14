@@ -16,6 +16,7 @@ local servers = {
   "gopls",
   "golangci_lint_ls",
   "rust_analyzer",
+  "jdtls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

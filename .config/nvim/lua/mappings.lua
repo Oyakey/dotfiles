@@ -2,6 +2,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("n", "\\", ";", { desc = "remap repeat motion to \\" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
@@ -65,3 +66,13 @@ map("n", "<leader>lx", function()
     underline = isLspDiagnosticsVisible,
   }
 end)
+
+map(
+  "n",
+  "<leader>tt",
+  ":hi Normal guibg=NONE ctermbg=NONE<cr>",
+  { desc = "Enable transparency" }
+)
+-- local transparency_enabled = false
+-- local ToggleTransparency()
+--   vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
