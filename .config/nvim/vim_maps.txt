@@ -1,0 +1,146 @@
+
+
+x  <Space>     *@<Lua 2358: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger
+n  <Space>ra   *@<Lua 759: ~/.local/share/nvim/lazy/ui/lua/nvchad/lsp/renamer.lua:56>
+                 LSP NvRenamer
+n  <Space>D    *@<Lua 481: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/lsp/buf.lua:292>
+                 LSP Go to type definition
+n  <Space>wl   *@<Lua 742: ~/.local/share/nvim/lazy/NvChad/lua/nvchad/configs/lspconfig.lua:15>
+                 LSP List workspace folders
+n  <Space>wr   *@<Lua 725: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/lsp/buf.lua:973>
+                 LSP Remove workspace folder
+n  <Space>wa   *@<Lua 757: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/lsp/buf.lua:952>
+                 LSP Add workspace folder
+x  "           *@<Lua 2359: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger registers
+n  K           *@<Lua 741: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/lsp.lua:727>
+                 vim.lsp.buf.hover()
+o  g           *@<Lua 80927: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger
+x  g           *@<Lua 2363: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger
+n  gd          *@<Lua 641: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/lsp/buf.lua:286>
+                 LSP Go to definition
+n  gD          *@<Lua 642: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/lsp/buf.lua:280>
+                 LSP Go to declaration
+x  z           *@<Lua 2362: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger
+x  <C-W>       *@<Lua 2361: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger
+n  <Tab>       * <Lua 301: ~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua:34>
+                 buffer goto next
+s  <Tab>       * <Lua 686: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+n  <Esc>       * <Cmd>noh<CR>
+                 general clear highlights
+n  <Space>a?   * <Lua 431: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:137>
+                 avante: select model
+n  <Space>aR   * <Lua 430: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:129>
+                 avante: display repo map
+n  <Space>as   * <Lua 429: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:126>
+                 avante: toggle suggestion
+n  <Space>ah   * <Lua 428: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:120>
+                 avante: toggle hint
+n  <Space>ad   * <Lua 427: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:114>
+                 avante: toggle debug
+n  <Space>at   * <Lua 426: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:110>
+                 avante: toggle
+n  <Space>af   * <Lua 425: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:106>
+                 avante: focus
+n  <Space>ar   * <Lua 424: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:100>
+                 avante: refresh
+v  <Space>ae   * <Lua 423: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:94>
+                 avante: edit
+v  <Space>aa   * <Lua 422: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:88>
+                 avante: ask
+n  <Space>aa   * <Lua 421: ~/.local/share/nvim/lazy/avante.nvim/lua/avante/init.lua:88>
+                 avante: ask
+n  <Space>tt   * <Lua 287: ~/.config/nvim/lua/mappings.lua:70>
+                 Toggle transparency
+n  <Space>lx   * <Lua 130: ~/.config/nvim/lua/mappings.lua:62>
+n  <Space>df   * <Lua 22: /opt/homebrew/Cellar/neovim/0.11.0/share/nvim/runtime/lua/vim/diagnostic.lua:2151>
+                 Open floating diagnostics
+n  <Space>ku   * :lua Close_saved_buffers()<CR>
+n  <Space>ef   * <Cmd>EslintFixAll<CR>
+n  <Space>tw   * <Cmd>set list!<CR>
+n  <Space>qA   * <Cmd>qa!<CR>
+n  <Space>qa   * <Cmd>qa<CR>
+n  <Space>lG   * <Cmd>term lazygit<CR>
+n  <Space>G    * <Cmd>LazyGit<CR>
+                 LazyGit
+n  <Space>gaR  * <Cmd>Git reset --hard<CR>
+n  <Space>gau  * <Cmd>Git reset .<CR>
+
+
+i  <C-R>       *@<Lua 60081: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger registers
+c  <C-R>       *@<Lua 2390: ~/.local/share/nvim/lazy/which-key.nvim/lua/which-key/triggers.lua:43>
+                 which-key-trigger registers
+i  <BS>        *@<Lua 211: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:408>
+i  <M-e>       *@<Esc>l<Cmd>lua require('nvim-autopairs.fastwrap').show()<CR>
+i  "           *@<Lua 462: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  '           *@<Lua 470: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  (           *@<Lua 384: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  )           *@<Lua 372: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  [           *@<Lua 386: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  ]           *@<Lua 388: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  `           *@<Lua 466: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  {           *@<Lua 464: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  }           *@<Lua 465: ~/.local/share/nvim/lazy/nvim-autopairs/lua/nvim-autopairs.lua:277>
+                 autopairs map key
+i  <C-N>       * <Lua 696: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+i  <C-Space>   * <Lua 138: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+i  <C-D>       * <Lua 709: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+i  <C-F>       * <Lua 702: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+i  <C-P>       * <Lua 710: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+c  <Plug>(TelescopeFuzzyCommandSearch) * <C-\>e "lua require('telescope.builtin').command_history { default_text = [=[" . escape(getcmdline(), '"') . "]=] }"<CR><CR>
+i  <C-K>       * <Up>
+                 move up
+i  <C-L>       * <Right>
+                 move right
+i  <C-H>       * <Left>
+                 move left
+i  <C-E>       * <Lua 252: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+i  <C-B>       * <Esc>^i
+                 move beginning of line
+!  <Plug>luasnip-expand-repeat * <Lua 190: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:38>
+                 LuaSnip: Repeat last node expansion
+!  <Plug>luasnip-delete-check * <Lua 188: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:31>
+                 LuaSnip: Removes current snippet from jumplist
+i  <Plug>luasnip-jump-prev * <Lua 186: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:24>
+                 LuaSnip: Jump to the previous node
+i  <Plug>luasnip-jump-next * <Lua 185: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:21>
+                 LuaSnip: Jump to the next node
+i  <Plug>luasnip-prev-choice * <Lua 184: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:18>
+                 LuaSnip: Change to the previous choice from the choiceNode
+i  <Plug>luasnip-next-choice * <Lua 183: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:15>
+                 LuaSnip: Change to the next choice from the choiceNode
+i  <Plug>luasnip-expand-snippet * <Lua 182: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:12>
+                 LuaSnip: Expand the current snippet
+i  <Plug>luasnip-expand-or-jump * <Lua 181: ~/.local/share/nvim/lazy/LuaSnip/plugin/luasnip.lua:9>
+                 LuaSnip: Expand or jump in the current snippet
+i  <C-]>       * <Lua 137: ~/.local/share/nvim/lazy/supermaven-nvim/lua/supermaven-nvim/completion_preview.lua:178>
+i  <C-J>       * <Down>
+                 move down
+i  <S-Tab>     * <Lua 688: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:133>
+                 cmp.utils.keymap.set_map
+i  <C-S>       * <Cmd> w <CR>
+i  <C-W>       * <C-G>u<C-W>
+                 :help i_CTRL-W-default
+i  <C-U>       * <C-G>u<C-U>
+                 :help i_CTRL-U-default

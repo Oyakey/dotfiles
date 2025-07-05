@@ -9,3 +9,7 @@ vim.opt.listchars = { space = "·", tab = "→ " }
 vim.opt.tabstop = 4
 vim.opt.backupcopy = "yes"
 vim.opt.scrolloff = 4
+
+require("luasnip.loaders.from_vscode").load_standalone {
+  path = "~/Library/Application Support/Code/User/snippets/julien.code-snippets",
+}

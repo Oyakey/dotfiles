@@ -115,7 +115,7 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # Alias
-alias s="cd ~/dev"
+alias dev="cd ~/dev"
 alias o="open ."
 alias c="code ."
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
@@ -133,6 +133,10 @@ alias gre="git reset HEAD@{1}"
 
 alias python="python3"
 alias py="python"
+
+# pnpm
+alias pn="pnpm"
+alias pm="pnpm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -167,6 +171,10 @@ alias wpcli="docker compose exec web wp --allow-root"
 # Java
 # export JAVA_HOME=/usr/libexec/java_home
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
+alias jvm21="export JAVA_HOME=/usr/libexec/java_home"
+alias jvm17="export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+
 # export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Zlib
@@ -240,13 +248,17 @@ export CC="/usr/bin/clang"
 # export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/opt/llvm/include"
 
 # Suggests correction for mispelled shell command.
-setopt correct
+# setopt correct
 
 # Set variables for curl etc. to use cegedim proxy.
 # Works for curl, brew and nvm with just url and port,
 # works for lerna with username:password@url:port,
 # currently not working for gradle and maybe cocoapods with maiia connect
 
+# Avoid including credentials in version control.
+[ -f ~/.credentials ] && source ~/.credentials
+
+# Proxy script for Cegedim Nantes broken internet.
 set_proxy() {
   if curl --output /dev/null --silent --head isp-ceg.emea.cegedim.grp:3128;
   then
@@ -255,9 +267,7 @@ set_proxy() {
     while getopts "cd" flag; do
       case $flag in
         c) 
-          USERNAME="jlecarpentier";
-          PASSWORD="JLCeg456+";
-          PROXY="$USERNAME:$PASSWORD@isp-ceg.emea.cegedim.grp:3128";
+          PROXY="$USERNAME:$PASSWORD@$PROXY";
         ;;
         d)
           SHOULD_SET_PROXY=false;
@@ -274,6 +284,7 @@ set_proxy() {
       export http_proxy=http://$PROXY;
       export HTTPS_PROXY=http://$PROXY;
       export https_proxy=http://$PROXY;
+      export NODE_TLS_REJECT_UNAUTHORIZED=0
     else
       echo "Exported PROXY"
     fi
@@ -281,9 +292,16 @@ set_proxy() {
 }
 clear_proxy ()
 {
-  unset PROXY ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy 
+  unset PROXY ALL_PROXY all_proxy HTTP_PROXY http_proxy HTTPS_PROXY https_proxy NODE_TLS_REJECT_UNAUTHORIZED
 }
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/jlecarpentier/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Created by `pipx` on 2025-04-15 09:46:59
+export PATH="$PATH:/Users/jlecarpentier/.local/bin"
+
+export OPENAI_API_KEY="sk-925d80c16633497f8a04a12578bb0e3b"
+
+export PATH=$PATH:$(go env GOPATH)/bin/

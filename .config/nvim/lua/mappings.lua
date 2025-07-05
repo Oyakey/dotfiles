@@ -2,6 +2,8 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+local completion_preview = require "supermaven-nvim.completion_preview"
+
 map("n", "\\", ";", { desc = "remap repeat motion to \\" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -67,12 +69,12 @@ map("n", "<leader>lx", function()
   }
 end)
 
-map(
-  "n",
-  "<leader>tt",
-  ":hi Normal guibg=NONE ctermbg=NONE<cr>",
-  { desc = "Enable transparency" }
-)
+map("n", "<leader>tt", function()
+  require("base46").toggle_transparency()
+end, { desc = "Toggle transparency" })
 -- local transparency_enabled = false
 -- local ToggleTransparency()
 --   vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
+
+-- map("i", "<S-Right>", completion_preview.on_accept_suggestion)
+-- map("i", "<S-Down>", completion_preview.on_accept_suggestion_word)
