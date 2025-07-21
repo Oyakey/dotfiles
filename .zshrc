@@ -114,6 +114,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+alias ghosttyconfig="vim ~/Library/Application Support/com.mitchellh.ghostty/config"
+
 # Alias
 alias dev="cd ~/dev"
 alias o="open ."
