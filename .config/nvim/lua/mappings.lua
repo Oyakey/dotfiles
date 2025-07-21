@@ -78,3 +78,10 @@ end, { desc = "Toggle transparency" })
 
 -- map("i", "<S-Right>", completion_preview.on_accept_suggestion)
 -- map("i", "<S-Down>", completion_preview.on_accept_suggestion_word)
+
+map(
+  "n",
+  "<leader>cp",
+  '<cmd>let @+=expand("%:p")<cr>',
+  { desc = "Copy current buffer path" }
+)
